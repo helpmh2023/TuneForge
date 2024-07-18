@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'f1';
+    src: url('fonts/f1font.otf') format('opentype');
+}
+.heading
+{
+    
+    font-family: 'f1';
+    font-size: 75px;
+    color: royalblue;
+}
+
+.button {
+    background-color: aquamarine;
+    color: royalblue;
+    width: 140px;
+    height: 140px;
+    font-size: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: "Ojuju", sans-serif;  
+    border-radius: 25px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button-home {
+    background-color: aquamarine;
+    color: royalblue;
+    width: 140px;
+    height: 50px;
+    font-size: 30px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-family: "Ojuju", sans-serif;  
+    border-radius: 25px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button-submit {
+    background-color: aquamarine;
+    color: royalblue;
+    width: 140px;
+    height: 50px;
+    font-size: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: "Ojuju", sans-serif;  
+    border-radius: 25px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+.label
+{
+    
+    font-family: 'f1';
+    font-size: 25px;
+    color: royalblue;
+}
+
+.footer
+{
+    position: fixed;
+    color: cyan;
+    bottom: 0;
+    width: 100%;
+    background-color: royalblue;
+    line-height: 7;
+    text-align: center;
+    font-size: 70px;    
+    font-family: "Ojuju", sans-serif;  
+}
+
+.input
+{
+    width: 25%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
