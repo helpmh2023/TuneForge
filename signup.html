@@ -1,36 +1,89 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Sign Up - TuneForge</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
-<script src="main.js"></script>
-    </head>
-    
-    <body background="background.jpg">
-        <center>
-            <h1 class="heading">Sign Up</h1><br><br><br><br>
+<head>
+    <title>Sign Up - TuneForge</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-            <form id="signupForm">
-                <label for="name" class="label">Name:</label><br><br>
-                <input type="text" class="input" id="name" name="name" required><br><br>
-                
-                <label for="email" class="label">Email:</label><br><br>
-                <input type="email" class="input" id="email" name="email" required><br><br>
-                
-                <label for="password" class="label">Password:</label><br><br>
-                <input type="password" class="input" id="password" name="password" required><br><br>
-                
-                <button type="submit" class="button-submit">Signup</button>
-            </form>
-        </center>
-        <a class="button-home" href="index.html">Home</a>
-        <div class="footer">
-            <h3 class="font"> © Developed by : TuneForge</h3>
-          </div>
-    </body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyD87-amSVeLEVJaLQ_YFTppeKwycveAAek",
+  authDomain: "tuneforge-18157.firebaseapp.com",
+  databaseURL: "https://tuneforge-18157-default-rtdb.firebaseio.com",
+  projectId: "tuneforge-18157",
+  storageBucket: "tuneforge-18157.appspot.com",
+  messagingSenderId: "151436948738",
+  appId: "1:151436948738:web:37351ad02030e36c03fe1b",
+  measurementId: "G-T0QWQNCCET"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+// Select the signup button
+const signupbutton = document.getElementById('signupbutton');
+
+signupbutton.addEventListener('click', (e) => {
+  e.preventDefault();
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var username = document.getElementById('username').value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed up 
+      const user = userCredential.user;
+      alert("user registered!");
+      // Additional code to handle the user object and database operations
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+});
+
+    </script>
+
+</head>
+<body background="background.jpg">
+    <center>
+        <h1 class="heading">Sign Up</h1><br><br><br><br>
+        <form id="signupForm">
+            <label for="name" class="label">Username:</label><br><br>
+            <input type="text" class="input" id="username" name="name" required><br><br>
+            <label for="email" class="label">Email:</label><br><br>
+            <input type="email" class="input" id="email" name="email" required><br><br>
+            <label for="password" class="label">Password:</label><br><br>
+            <input type="password" class="input" id="password" name="password" required><br><br>
+            <button type="submit" class="button-submit" id="signupbutton">Signup</button>
+        </form>
+    </center>
+    <a class="button-home" href="index.html">Home</a>
+    <div class="footer">
+        <h3 class="font">© Developed by : TuneForge</h3>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+
+
 </html>
